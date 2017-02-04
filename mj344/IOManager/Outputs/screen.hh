@@ -3,9 +3,8 @@
 * @Date:   2017-02-03T17:57:51+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-03T21:17:05+00:00
+* @Last modified time: 2017-02-03T23:11:56+00:00
 */
-
 
 #ifndef MJ344_SCREEN_HH_
 #define MJ344_SCREEN_HH_
@@ -15,19 +14,19 @@
 
 #include "AOutput.hh"
 
-class Screen: protected AOutput {
+class Screen: public AOutput {
 
 public:
   Screen();
   ~Screen();
 
-  void print(const std::string &);
+  void 		print(const std::string &);
 
 private:
   /**
    * LCD value for
    */
-  C12832 *shieldLCD;
+  C12832	*shieldLCD;
 };
 
 #endif /* !MJ344_SCREEN_HH_ */

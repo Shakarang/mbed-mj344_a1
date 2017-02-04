@@ -3,7 +3,7 @@
 * @Date:   2017-02-03T21:45:04+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-03T22:03:23+00:00
+* @Last modified time: 2017-02-03T23:14:08+00:00
 */
 
 #ifndef MJ344_HOST_HH_
@@ -13,16 +13,16 @@
 
 #include "AOutput.hh"
 
-class Host: protected AOutput {
+class Host: public AOutput {
 
 public:
   Host();
   ~Host();
 
-  void print(const std::string &);
+  void		print(const std::string &);
 
 private:
-  Serial *host;
+  Serial	*host;
 };
 
 #endif /* !MJ344_HOST_HH_ */
