@@ -3,7 +3,7 @@
 * @Date:   2017-02-03T18:03:41+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-04T14:57:34+00:00
+* @Last modified time: 2017-02-05T11:43:30+00:00
 */
 
 #include "Screen.hh"
@@ -13,15 +13,15 @@ Screen::Screen(): AOutput("shield_lcd") {
 }
 
 Screen::~Screen() {
-  if (this->shieldLCD != NULL) {
-    delete this->shieldLCD;
-  }
+	if (this->shieldLCD != NULL) {
+		delete this->shieldLCD;
+	}
 }
 
 void	Screen::print(const std::string &str) {
-  if (this->shieldLCD != NULL) {
-	 this->shieldLCD->cls();
-    this->shieldLCD->locate(0, 0);
-    this->shieldLCD->printf("%s\n", str.c_str());
+	if (this->shieldLCD != NULL) {
+		this->shieldLCD->cls();
+		this->shieldLCD->locate(0, 0);
+		this->shieldLCD->printf("%s\n", str.c_str());
   }
 }

@@ -3,7 +3,7 @@
 * @Date:   2017-02-03T17:50:02+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-04T15:26:06+00:00
+* @Last modified time: 2017-02-05T11:44:27+00:00
 */
 
 #ifndef MJ344_AOUTPUT_HH_
@@ -19,15 +19,15 @@ public:
   AOutput(const std::string &);
   virtual ~AOutput() {};
 
-  /**
-   * Displays string to the specified output.
-   * Pure method needed to me implemented by child classes.
-   * @param string to display
-   */
-  virtual void		print(const std::string &) = 0;
+	/**
+	* Displays string to the specified output.
+	* Pure method needed to me implemented by child classes.
+	* @param string to display
+	*/
+	virtual void		print(const std::string &) = 0;
 
 protected:
-  const std::string	identifier;
+	const std::string	identifier;
 };
 
 #endif /* !MJ344_AOUTPUT_HH_ */
