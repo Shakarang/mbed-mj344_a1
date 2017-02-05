@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T10:44:59+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T11:31:36+00:00
+* @Last modified time: 2017-02-05T13:19:57+00:00
 */
 
 #include "Light.hh"
@@ -21,15 +21,9 @@ Light::Light(const Light::Position position) {
 }
 
 Light::~Light() {
-	if (this->red != NULL) {
-		delete this->red;
-	}
-	if (this->green != NULL) {
-		delete this->green;
-	}
-	if (this->blue != NULL) {
-		delete this->blue;
-	}
+	if (this->red != NULL) { delete this->red; }
+	if (this->green != NULL) { delete this->green; }
+	if (this->blue != NULL) { delete this->blue; }
 }
 
 void	Light::updateState(const Light::Color clr) {

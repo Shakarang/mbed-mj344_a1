@@ -3,7 +3,7 @@
 * @Date:   2017-02-03T16:27:45+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T11:37:46+00:00
+* @Last modified time: 2017-02-05T12:20:06+00:00
 */
 
 #include "mbed-os/mbed.h"
@@ -18,6 +18,7 @@
 #include "IOManager/IOManager.hh"
 #include "IOManager/Inputs/UserInput/Switch.hh"
 #include "IOManager/Inputs/UserInput/UserInput.hh"
+#include "IOManager/Inputs/UserInput/Joystick.hh"
 #include "IOManager/Outputs/Light.hh"
 //DigitalOut h(LED1);
 // DigitalOut red(LED3);
@@ -29,22 +30,21 @@ AnalogIn pot(A0);
 
 LM75B sensor(I2C_SDA, I2C_SCL);
 
+Light lol(Light::SHIELD);
+
 //Serial pc(USBTX, USBRX);
 
 // C12832 shld_lcd (D11, D13, D12, D7, D10);   /* LCD */
 //
-// void hello(const UserInput::Type tp) {
-// 	red = !red;
-// 	shld_lcd.cls();
-// 	shld_lcd.locate(0, 10);
-// 	shld_lcd.printf("Triggered\n");
-// }
+void hello(const UserInput::Type tp) {
+	lol.updateState((Light::Color)tp);
+}
 
 int main() {
 
     int i;
+	Joystick jst(&hello);
 
-	Light lol(Light::SHIELD);
 
     // Screen scr;
     // std::string str("Saluuuutloluzebduyizebyeurfreyugferuyfgreyufg");
@@ -60,10 +60,10 @@ int main() {
     //
      while (1) {
 
-		 for (int i = 0; i < 8; i++) {
-		 	lol.updateState((Light::Color)i);
-			wait(0.5);
-		 }
+		//  for (int i = 0; i < 8; i++) {
+		//  	lol.updateState((Light::Color)i);
+		// 	wait(0.5);
+		//  }
 
 	// 	// shld_lcd.cls();
 	// 	// shld_lcd.locate(0, 10);
@@ -86,6 +86,6 @@ int main() {
     //     //     green = 0;
     //     // }
 	//
-         //wait(0.5);
+         wait(0.5);
      }
 }

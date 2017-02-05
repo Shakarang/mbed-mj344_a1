@@ -3,7 +3,7 @@
 * @Date:   2017-02-04T12:40:57+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-04T15:25:38+00:00
+* @Last modified time: 2017-02-05T13:18:47+00:00
 */
 
 #include "Switch.hh"
@@ -14,9 +14,7 @@ Switch::Switch(const PinName &pn, void (*fptr)(const UserInput::Type)): UserInpu
 }
 
 Switch::~Switch() {
-	if (this->button != NULL) {
-		delete this->button;
-	}
+	if (this->button != NULL) { delete this->button; }
 }
 
 void	Switch::triggered() {

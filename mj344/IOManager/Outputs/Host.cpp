@@ -3,7 +3,7 @@
 * @Date:   2017-02-03T21:46:16+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T11:44:41+00:00
+* @Last modified time: 2017-02-05T13:19:22+00:00
 */
 
 #include <time.h>
@@ -14,9 +14,7 @@ Host::Host(): AOutput("host") {
 }
 
 Host::~Host() {
-	if (this->host != NULL) {
-		delete this->host;
-	}
+	if (this->host != NULL) { delete this->host; }
 }
 
 void	Host::print(const std::string &str) {
