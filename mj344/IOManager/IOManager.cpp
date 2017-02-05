@@ -3,13 +3,10 @@
 * @Date:   2017-02-03T17:24:19+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-04T15:37:47+00:00
+* @Last modified time: 2017-02-05T11:29:20+00:00
 */
 
 #include "IOManager.hh"
-
-#include "Outputs/Host.hh"
-#include "Outputs/Screen.hh"
 
 IOManager::IOManager() {
 
