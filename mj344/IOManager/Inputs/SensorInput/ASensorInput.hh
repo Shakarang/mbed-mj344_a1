@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T13:37:35+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T17:05:37+00:00
+* @Last modified time: 2017-02-05T20:08:52+00:00
 */
 
 #ifndef MJ344_SENSORINPUT_HH_
@@ -27,6 +27,7 @@ public:
 	virtual ~ASensorInput() {};
 
 	ASensorInput::Type						getType() const;
+	std::string								getTypeReadable() const;
 	const std::vector<std::string>			&getUnits() const;
 	const std::string						getCurrentUnit() const;
 	const std::string						getNextUnit();

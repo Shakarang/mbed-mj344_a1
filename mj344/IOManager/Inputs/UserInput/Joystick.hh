@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T11:47:53+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T13:14:30+00:00
+* @Last modified time: 2017-02-05T19:06:52+00:00
 */
 
 #ifndef MJ344_JOYSTICK_HH_
@@ -14,10 +14,8 @@
 class Joystick: public UserInput {
 
 public:
-	Joystick(void (*)(const UserInput::Type));
+	Joystick(Callback<void(const UserInput::Type)>);
 	~Joystick();
-
-	void 		triggered();
 
 private:
 	InterruptIn *up;

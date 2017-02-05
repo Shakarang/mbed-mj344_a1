@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T14:00:45+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T17:05:27+00:00
+* @Last modified time: 2017-02-05T20:08:46+00:00
 */
 
 #include "ASensorInput.hh"
@@ -14,6 +14,13 @@ ASensorInput::ASensorInput(const ASensorInput::Type tp): type(tp) {
 
 ASensorInput::Type	ASensorInput::getType() const {
 	return this->type;
+}
+
+std::string		ASensorInput::getTypeReadable() const {
+	switch (this->type) {
+		case ASensorInput::ACCELEROMETER: return "Accelerometer";
+		case ASensorInput::TEMPERATURE: return "Temperature";
+	}
 }
 
 const std::vector<std::string>	&ASensorInput::getUnits() const {

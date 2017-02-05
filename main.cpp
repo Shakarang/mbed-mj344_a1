@@ -3,7 +3,7 @@
 * @Date:   2017-02-03T16:27:45+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T17:08:06+00:00
+* @Last modified time: 2017-02-05T18:59:42+00:00
 */
 
 #include "mbed-os/mbed.h"
@@ -22,6 +22,7 @@
 #include "IOManager/Inputs/UserInput/Joystick.hh"
 #include "IOManager/Inputs/SensorInput/Temperature.hh"
 #include "IOManager/Outputs/Light.hh"
+#include "mj344/ServiceManager.hh"
 //DigitalOut h(LED1);
 // DigitalOut red(LED3);
 //DigitalOut green(LED2);
@@ -32,31 +33,31 @@ AnalogIn pot(A0);
 
 //LM75B sensor(I2C_SDA, I2C_SCL);
 
-Light lol(Light::SHIELD);
+//Light lol(Light::SHIELD);
 
 //Serial pc(USBTX, USBRX);
 
 // C12832 shld_lcd (D11, D13, D12, D7, D10);   /* LCD */
 //
 //
-Temperature t;
-IOManager manager;
-void hello(const UserInput::Type tp) {
-	lol.updateState((Light::Color)tp);
-
-	if (tp == UserInput::LEFT) {
-		manager.display(t.getPreviousUnit());
-	} else if (tp == UserInput::RIGHT) {
-		manager.display(t.getNextUnit());
-	}
-
-}
+// Temperature t;
+// IOManager manager;
+// void hello(const UserInput::Type tp) {
+// 	lol.updateState((Light::Color)tp);
+//
+// 	if (tp == UserInput::LEFT) {
+// 		manager.display(t.getPreviousUnit());
+// 	} else if (tp == UserInput::RIGHT) {
+// 		manager.display(t.getNextUnit());
+// 	}
+//
+// }
 
 int main() {
 
     int i;
-	Joystick jst(&hello);
-
+	//Joystick jst(&hello);
+	ServiceManager sm;
 
     // Screen scr;
     // std::string str("Saluuuutloluzebduyizebyeurfreyugferuyfgreyufg");
@@ -72,10 +73,10 @@ int main() {
     //
      while (1) {
 
-		std::map<std::string, float> map = t.getData();
-
-		std::ostringstream stringStream;
-  		stringStream << map["temp"];
+		// std::map<std::string, float> map = t.getData();
+		//
+		// std::ostringstream stringStream;
+  // 		stringStream << map["temp"];
 
 		// std::vector<std::string> hello = t.getUnits();
 		//
