@@ -3,14 +3,15 @@
 * @Date:   2017-02-03T16:27:45+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T12:20:06+00:00
+* @Last modified time: 2017-02-05T17:08:06+00:00
 */
 
 #include "mbed-os/mbed.h"
 #include "LM75B.h"
 //#include "C12832.h"
-
+#include <map>
 #include <sstream>
+#include <stdio.h>
 
 #include "IOManager/Outputs/AOutput.hh"
 #include "IOManager/Outputs/Screen.hh"
@@ -19,6 +20,7 @@
 #include "IOManager/Inputs/UserInput/Switch.hh"
 #include "IOManager/Inputs/UserInput/UserInput.hh"
 #include "IOManager/Inputs/UserInput/Joystick.hh"
+#include "IOManager/Inputs/SensorInput/Temperature.hh"
 #include "IOManager/Outputs/Light.hh"
 //DigitalOut h(LED1);
 // DigitalOut red(LED3);
@@ -28,7 +30,7 @@
 
 AnalogIn pot(A0);
 
-LM75B sensor(I2C_SDA, I2C_SCL);
+//LM75B sensor(I2C_SDA, I2C_SCL);
 
 Light lol(Light::SHIELD);
 
@@ -36,8 +38,18 @@ Light lol(Light::SHIELD);
 
 // C12832 shld_lcd (D11, D13, D12, D7, D10);   /* LCD */
 //
+//
+Temperature t;
+IOManager manager;
 void hello(const UserInput::Type tp) {
 	lol.updateState((Light::Color)tp);
+
+	if (tp == UserInput::LEFT) {
+		manager.display(t.getPreviousUnit());
+	} else if (tp == UserInput::RIGHT) {
+		manager.display(t.getNextUnit());
+	}
+
 }
 
 int main() {
@@ -52,13 +64,27 @@ int main() {
       //  shld_lcd.printf ("Eh salut \n");
     // Host pc;
     //
-    //IOManager manager;
+
 
 
 	//Switch sw(SW2, &hello);
 
     //
      while (1) {
+
+		std::map<std::string, float> map = t.getData();
+
+		std::ostringstream stringStream;
+  		stringStream << map["temp"];
+
+		// std::vector<std::string> hello = t.getUnits();
+		//
+		// for (std::vector<std::string>::iterator it = hello.begin() ; it != hello.end(); ++it) {
+		// 	manager.display(*it);
+		// 	wait(0.5);
+		// }
+
+//		 manager.display(stringStream.str());
 
 		//  for (int i = 0; i < 8; i++) {
 		//  	lol.updateState((Light::Color)i);
