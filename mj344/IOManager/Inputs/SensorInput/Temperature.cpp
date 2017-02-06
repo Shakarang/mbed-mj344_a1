@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T14:11:11+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T17:10:20+00:00
+* @Last modified time: 2017-02-05T21:51:58+00:00
 */
 
 #include "Temperature.hh"
@@ -23,7 +23,19 @@ std::map<std::string, float>	Temperature::getData() const {
 
 	std::map<std::string, float> map;
 
-	map[this->units[this->currentUnitIndex]] = this->sensor->read();
+	float data = this->sensor->read();
 
+	switch (this->currentUnitIndex) {
+		case 0: // Celsius
+		map[this->units[this->currentUnitIndex]] = data;
+		break;
+		case 1: // Fahrenheit
+		map[this->units[this->currentUnitIndex]] = (data * 1.8 + 32);
+		break;
+		case 2: // Kelvin
+		map[this->units[this->currentUnitIndex]] = (data + 273.15);
+		break;
+	}
+	
 	return map;
 }

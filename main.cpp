@@ -3,7 +3,7 @@
 * @Date:   2017-02-03T16:27:45+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T18:59:42+00:00
+* @Last modified time: 2017-02-05T23:07:28+00:00
 */
 
 #include "mbed-os/mbed.h"
@@ -58,6 +58,11 @@ int main() {
     int i;
 	//Joystick jst(&hello);
 	ServiceManager sm;
+	sm.start();
+
+	while (1) {
+		wait(1);
+	}
 
     // Screen scr;
     // std::string str("Saluuuutloluzebduyizebyeurfreyugferuyfgreyufg");
@@ -71,7 +76,7 @@ int main() {
 	//Switch sw(SW2, &hello);
 
     //
-     while (1) {
+     //while (1) {
 
 		// std::map<std::string, float> map = t.getData();
 		//
@@ -113,6 +118,6 @@ int main() {
     //     //     green = 0;
     //     // }
 	//
-         wait(0.5);
-     }
+    //      wait(0.5);
+    //  }
 }

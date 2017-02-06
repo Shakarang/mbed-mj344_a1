@@ -3,13 +3,15 @@
 * @Date:   2017-02-03T17:24:19+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T20:13:13+00:00
+* @Last modified time: 2017-02-05T22:33:14+00:00
 */
 
 #include "IOManager.hh"
 
 IOManager::IOManager(): bottomLight(Light(Light::FRDM)), topLight(Light(Light::SHIELD)) {
 	this->currentSensorIndex = 0;
+	this->bottomLight.updateState(Light::BLACK);
+	this->topLight.updateState(Light::BLACK);
 }
 
 IOManager::~IOManager() {
@@ -79,10 +81,10 @@ ASensorInput 					*IOManager::getPreviousSensor() {
 	}
 }
 
-const Light		&IOManager::getBottomLight() {
+Light		&IOManager::getBottomLight() {
 	return this->bottomLight;
 }
 
-const Light		&IOManager::getTopLight() {
+Light		&IOManager::getTopLight() {
 	return this->topLight;
 }

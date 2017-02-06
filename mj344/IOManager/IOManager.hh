@@ -3,7 +3,7 @@
 * @Date:   2017-02-03T17:06:23+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T20:12:58+00:00
+* @Last modified time: 2017-02-05T22:33:03+00:00
 */
 
 #ifndef MJ344_IOMANAGER_HH_
@@ -49,8 +49,8 @@ public:
 	ASensorInput					*getNextSensor();
 	ASensorInput 					*getPreviousSensor();
 
-	const Light					&getBottomLight();
-	const Light					&getTopLight();
+	Light					&getBottomLight();
+	Light					&getTopLight();
 };
 
 #endif /* !MJ344_IOMANAGER_HH_ */
