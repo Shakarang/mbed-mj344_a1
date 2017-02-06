@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T17:13:43+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T23:54:46+00:00
+* @Last modified time: 2017-02-06T16:40:36+00:00
 */
 
 #ifndef MJ344_SERVICEMANAGER_HH_
@@ -52,6 +52,7 @@ private:
 	void	resumeHandler(const UserInput::Type);
 	void	updateRateHandler(const UserInput::Type);
 	void	temperatureHandler(std::map<std::string, float>);
+	void	accelerometerHandler(std::map<std::string, float>);
 	void	tickerHandler();
 
 };

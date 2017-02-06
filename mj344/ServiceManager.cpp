@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T17:17:29+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-06T00:03:19+00:00
+* @Last modified time: 2017-02-06T17:17:32+00:00
 */
 
 #include <sstream>
@@ -14,6 +14,7 @@
 #include "IOManager/Inputs/UserInput/Joystick.hh"
 
 #include "IOManager/Inputs/SensorInput/Temperature.hh"
+#include "IOManager/Inputs/SensorInput/Accelerometer.hh"
 
 ServiceManager::ServiceManager() {
 
@@ -22,6 +23,7 @@ ServiceManager::ServiceManager() {
 	this->iomanager.addUserInput(new Joystick(callback(this, &ServiceManager::joystickHandler)));
 
 	this->iomanager.addSensor(new Temperature());
+	this->iomanager.addSensor(new Accelerometer());
 	this->currentSensor = this->iomanager.getSensors()[0];
 
 	this->rate = 0.5;
@@ -135,6 +137,9 @@ void	ServiceManager::tickerHandler() {
 			case ASensorInput::TEMPERATURE:
 			this->temperatureHandler(data);
 			break;
+			case ASensorInput::ACCELEROMETER:
+			this->accelerometerHandler(data);
+			break;
 		}
 	}
 
@@ -150,5 +155,27 @@ void	ServiceManager::temperatureHandler(std::map<std::string, float> data) {
 	if (this->shouldDisplayData) {
 		this->iomanager.display(stringStream.str());
 	}
+	this->iomanager.log(stringStream.str());
+}
+
+void	ServiceManager::accelerometerHandler(std::map<std::string, float> data) {
+
+	std::ostringstream stringStream;
+
+	for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); ++it) {
+		stringStream << (*it).first << " : " << (*it).second << std::endl;
+	}
+
+	if (this->shouldDisplayData) {
+		this->iomanager.display(stringStream.str());
+
+		int x = static_cast<int>(data["x"] + 1);
+		int y = static_cast<int>(data["y"] + 1);
+		int z = static_cast<int>(data["z"] + 1);
+
+		this->iomanager.getTopLight().setMultipleColors(x, y, z);
+
+	}
+
 	this->iomanager.log(stringStream.str());
 }

@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T10:44:59+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T13:19:57+00:00
+* @Last modified time: 2017-02-06T15:24:56+00:00
 */
 
 #include "Light.hh"
@@ -30,4 +30,10 @@ void	Light::updateState(const Light::Color clr) {
 	this->red->write(!((clr & ( 1 << 2 )) >> 2));
 	this->green->write(!((clr & ( 1 << 1 )) >> 1));
 	this->blue->write(!((clr & ( 1 << 0 )) >> 0));
+}
+
+void	Light::setMultipleColors(const int r, const int g, const int b) {
+		this->red->write(r);
+		this->green->write(g);
+		this->blue->write(b);
 }
