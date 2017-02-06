@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T13:37:35+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T20:08:52+00:00
+* @Last modified time: 2017-02-06T20:06:14+00:00
 */
 
 #ifndef MJ344_SENSORINPUT_HH_
@@ -30,6 +30,7 @@ public:
 	std::string								getTypeReadable() const;
 	const std::vector<std::string>			&getUnits() const;
 	const std::string						getCurrentUnit() const;
+	int								getCurrentUnitIndex() const;
 	const std::string						getNextUnit();
 	const std::string 						getPreviousUnit();
 
@@ -39,7 +40,7 @@ private:
 	const ASensorInput::Type				type;
 
 protected:
-	int								currentUnitIndex;
+	int										currentUnitIndex;
 	std::vector<std::string>				units;
 //	void	(*sensorCallback)(const std::map<>);
 };

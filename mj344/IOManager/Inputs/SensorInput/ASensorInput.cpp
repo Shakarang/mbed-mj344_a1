@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T14:00:45+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T20:08:46+00:00
+* @Last modified time: 2017-02-06T20:06:08+00:00
 */
 
 #include "ASensorInput.hh"
@@ -29,6 +29,10 @@ const std::vector<std::string>	&ASensorInput::getUnits() const {
 
 const std::string			ASensorInput::getCurrentUnit() const {
 	return this->units[this->currentUnitIndex];
+}
+
+int						ASensorInput::getCurrentUnitIndex() const {
+	return this->currentUnitIndex;
 }
 
 const std::string					ASensorInput::getNextUnit() {

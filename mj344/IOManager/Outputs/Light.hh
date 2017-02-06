@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T10:28:00+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-06T15:24:16+00:00
+* @Last modified time: 2017-02-06T20:34:07+00:00
 */
 
 #ifndef MJ344_LIGHT_HH_
@@ -48,7 +48,7 @@ public:
 	 */
 	 void updateState(const Light::Color);
 
-	 void setMultipleColors(const int r, const int g, const int b);
+	 void setMultipleColors(const int r, const int g);
 
 private:
 	DigitalOut *red;
