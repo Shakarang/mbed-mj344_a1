@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T17:17:29+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-06T22:11:04+00:00
+* @Last modified time: 2017-02-07T22:24:34+00:00
 */
 
 #include <sstream>
@@ -26,7 +26,7 @@ ServiceManager::ServiceManager() {
 	this->iomanager.addSensor(new Accelerometer());
 	this->currentSensor = this->iomanager.getSensors()[0];
 
-	this->rate = 0.5;
+	this->rate = SERVICE_MAXIMAL_RATE;
 	this->isRunning = false;
 }
 
@@ -34,7 +34,7 @@ ServiceManager::~ServiceManager() {
 	if (this->ticker != NULL) { delete this->ticker; }
 }
 
-void ServiceManager::start() {
+void			ServiceManager::start() {
 
 	this->iomanager.log("Start, new ticker");
 
@@ -46,7 +46,7 @@ void ServiceManager::start() {
 	this->shouldDisplayData = true;
 }
 
-void	ServiceManager::stop() {
+void			ServiceManager::stop() {
 
 	this->iomanager.log("Stop, will kill ticker");
 	this->iomanager.display("STOP");
@@ -60,7 +60,7 @@ void	ServiceManager::stop() {
 
 }
 
-void	ServiceManager::resumeHandler(const UserInput::Type) {
+void			ServiceManager::resumeHandler(const UserInput::Type) {
 	if (this->isRunning) {
 		this->stop();
 	} else {
@@ -68,7 +68,7 @@ void	ServiceManager::resumeHandler(const UserInput::Type) {
 	}
 }
 
-void ServiceManager::updateRateHandler(const UserInput::Type input) {
+void			ServiceManager::updateRateHandler(const UserInput::Type input) {
 
 	this->shouldDisplayData = false;
 
@@ -85,7 +85,7 @@ void ServiceManager::updateRateHandler(const UserInput::Type input) {
 	this->iomanager.display(oss.str());
 }
 
-void ServiceManager::joystickHandler(const UserInput::Type input) {
+void			ServiceManager::joystickHandler(const UserInput::Type input) {
 
 
 	this->iomanager.log("User interracted with the Joystick");
@@ -129,7 +129,7 @@ void ServiceManager::joystickHandler(const UserInput::Type input) {
 
 }
 
-void	ServiceManager::tickerHandler() {
+void			ServiceManager::tickerHandler() {
 
 	this->iomanager.log("Ticker handler");
 
@@ -147,7 +147,7 @@ void	ServiceManager::tickerHandler() {
 
 }
 
-void	ServiceManager::temperatureHandler(std::map<std::string, float> data) {
+void			ServiceManager::temperatureHandler(std::map<std::string, float> data) {
 
 	std::ostringstream stringStream;
 	std::ostringstream logStringStream;
@@ -161,7 +161,7 @@ void	ServiceManager::temperatureHandler(std::map<std::string, float> data) {
 	this->iomanager.log(stringStream.str());
 }
 
-void	ServiceManager::accelerometerHandler(std::map<std::string, float> data) {
+void			ServiceManager::accelerometerHandler(std::map<std::string, float> data) {
 
 	std::ostringstream stringStream;
 	std::ostringstream logStringStream;

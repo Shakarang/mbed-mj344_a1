@@ -3,7 +3,7 @@
 * @Date:   2017-02-06T15:51:40+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-06T19:38:56+00:00
+* @Last modified time: 2017-02-07T22:26:34+00:00
 */
 
 #include <cmath>
@@ -35,17 +35,6 @@ std::map<std::string, float>	Accelerometer::getData() const {
 
 	map["Roll"] = atan2f(map["y"], map["z"]) * 180/M_PI;
 	map["Pitch"] = atan2(-map["x"], sqrt(map["y"] * map["y"] + map["z"] * map["z"])) * 180 / M_PI;
-	//
-	// // float data = this->sensor->read();
-	// //
-	// switch (this->currentUnitIndex) {
-	// 	case 0: // Degrees / Roll/Pitch
-	// 	map["Roll"] = atan2f(map["y"], map["z"]) * 180/M_PI;
-    // 	map["Pitch"] = atan2(-map["x"], sqrt(map["y"] * map["y"] + map["z"] * map["z"])) * 180 / M_PI;
-	// 	break;
-	// 	case 1: // Raw (already ready before)
-	// 	break;
-	// }
 
 	return map;
 }

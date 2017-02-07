@@ -3,7 +3,7 @@
 * @Date:   2017-02-03T17:24:19+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T22:33:14+00:00
+* @Last modified time: 2017-02-07T22:25:13+00:00
 */
 
 #include "IOManager.hh"
@@ -29,27 +29,27 @@ IOManager::~IOManager() {
 	this->sensors.clear();
 }
 
-void 	IOManager::addUserInput(UserInput *input) {
+void								IOManager::addUserInput(UserInput *input) {
 	this->userInputs.push_back(input);
 }
 
-void 	IOManager::addSensor(ASensorInput *input) {
+void								IOManager::addSensor(ASensorInput *input) {
 	this->sensors.push_back(input);
 }
 
-void	IOManager::display(const std::string &str) {
+void								IOManager::display(const std::string &str) {
 	this->screen.print(str);
 }
 
-void	IOManager::log(const std::string &str) {
+void								IOManager::log(const std::string &str) {
 	this->host.print(str);
 }
 
-const std::vector<ASensorInput*>	&IOManager::getSensors() {
+const std::vector<ASensorInput*>	&IOManager::getSensors() const {
 	return this->sensors;
 }
 
-ASensorInput					*IOManager::getNextSensor() {
+ASensorInput						*IOManager::getNextSensor() {
 
 	int sensorsLength = this->sensors.size();
 
@@ -81,10 +81,10 @@ ASensorInput 					*IOManager::getPreviousSensor() {
 	}
 }
 
-Light		&IOManager::getBottomLight() {
+Light							&IOManager::getBottomLight() {
 	return this->bottomLight;
 }
 
-Light		&IOManager::getTopLight() {
+Light							&IOManager::getTopLight() {
 	return this->topLight;
 }

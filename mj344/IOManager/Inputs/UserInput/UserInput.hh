@@ -3,7 +3,7 @@
 * @Date:   2017-02-04T12:48:55+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T19:16:39+00:00
+* @Last modified time: 2017-02-07T22:25:59+00:00
 */
 
 #ifndef MJ344_USERINPUT_HH_
@@ -11,23 +11,30 @@
 
 #include "../../../../mbed-os/mbed.h"
 
-class ServiceManager;
-
-//typedef void (ServiceManager::*Callback)(const UserInput::Type);
-
+/**
+ * UserInput class helps managing the different inputs which ara not analogic.
+ */
 class UserInput {
 
 public:
+	/**
+	 * Type of the input
+	 */
 	enum Type {
 		FIRE, LEFT, RIGHT, UP, DOWN
 	 };
 
 public:
-	UserInput(Callback<void(const UserInput::Type)>);//void (ServiceManager::*)(const UserInput::Type));
+	/**
+	 * Constructor taking event callback in parameters.
+	 */
+	UserInput(Callback<void(const UserInput::Type)>);
 	~UserInput() {};
 
 protected:
-	//void	(ServiceManager::*inputCallback)(const UserInput::Type);
+	/**
+	 * Callback to call when the user did an action.
+	 */
 	Callback<void(const UserInput::Type)> inputCallback;
 };
 

@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T14:00:45+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-06T20:06:08+00:00
+* @Last modified time: 2017-02-07T22:26:58+00:00
 */
 
 #include "ASensorInput.hh"
@@ -16,7 +16,7 @@ ASensorInput::Type	ASensorInput::getType() const {
 	return this->type;
 }
 
-std::string		ASensorInput::getTypeReadable() const {
+std::string						ASensorInput::getTypeReadable() const {
 	switch (this->type) {
 		case ASensorInput::ACCELEROMETER: return "Accelerometer";
 		case ASensorInput::TEMPERATURE: return "Temperature";
@@ -27,15 +27,15 @@ const std::vector<std::string>	&ASensorInput::getUnits() const {
 	return this->units;
 }
 
-const std::string			ASensorInput::getCurrentUnit() const {
+const std::string				ASensorInput::getCurrentUnit() const {
 	return this->units[this->currentUnitIndex];
 }
 
-int						ASensorInput::getCurrentUnitIndex() const {
+int								ASensorInput::getCurrentUnitIndex() const {
 	return this->currentUnitIndex;
 }
 
-const std::string					ASensorInput::getNextUnit() {
+const std::string				ASensorInput::getNextUnit() {
 
 	int unitsLength = this->units.size();
 

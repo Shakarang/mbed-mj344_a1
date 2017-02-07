@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T14:11:11+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T21:51:58+00:00
+* @Last modified time: 2017-02-07T22:27:03+00:00
 */
 
 #include "Temperature.hh"
@@ -36,6 +36,6 @@ std::map<std::string, float>	Temperature::getData() const {
 		map[this->units[this->currentUnitIndex]] = (data + 273.15);
 		break;
 	}
-	
+
 	return map;
 }
