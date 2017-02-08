@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T17:13:43+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-07T21:57:00+00:00
+* @Last modified time: 2017-02-08T19:13:59+00:00
 */
 
 #ifndef MJ344_SERVICEMANAGER_HH_
@@ -36,7 +36,7 @@ private:
 	/**
 	 * Current sensor to collect the data.
 	 */
-	ASensorInput	*currentSensor;
+	ASensorInput	*currentSensor = NULL;
 
 	/**
 	 * Boolean to know if we should display sensor data on screen or not.
@@ -53,7 +53,7 @@ private:
 	 * Ticker used to collect data from selected sensor.
 	 * When the program in in pause, we delete it to avoid too much power consuption.
 	 */
-	Ticker			*ticker;
+	Ticker			*ticker = NULL;
 
 	/**
 	 * Current rate to collect sensor data.

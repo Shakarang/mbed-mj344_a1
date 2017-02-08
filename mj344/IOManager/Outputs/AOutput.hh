@@ -3,7 +3,7 @@
 * @Date:   2017-02-03T17:50:02+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-08T15:53:17+00:00
+* @Last modified time: 2017-02-08T18:26:01+00:00
 */
 
 #ifndef MJ344_AOUTPUT_HH_
@@ -19,7 +19,7 @@
 class AOutput {
 
 public:
-  AOutput(const std::string &);
+  AOutput();
   virtual ~AOutput() {};
 
 	/**
@@ -29,8 +29,6 @@ public:
 	*/
 	virtual void		print(const std::string &) = 0;
 
-protected:
-	const std::string	identifier;
 };
 
 #endif /* !MJ344_AOUTPUT_HH_ */

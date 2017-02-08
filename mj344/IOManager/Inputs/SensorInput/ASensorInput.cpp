@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T14:00:45+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-07T22:26:58+00:00
+* @Last modified time: 2017-02-08T18:05:04+00:00
 */
 
 #include "ASensorInput.hh"
@@ -21,6 +21,7 @@ std::string						ASensorInput::getTypeReadable() const {
 		case ASensorInput::ACCELEROMETER: return "Accelerometer";
 		case ASensorInput::TEMPERATURE: return "Temperature";
 	}
+	return "";
 }
 
 const std::vector<std::string>	&ASensorInput::getUnits() const {

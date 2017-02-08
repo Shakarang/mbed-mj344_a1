@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T17:17:29+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-08T14:07:27+00:00
+* @Last modified time: 2017-02-08T19:26:24+00:00
 */
 
 #include <sstream>
@@ -56,6 +56,7 @@ void			ServiceManager::stop() {
 
 	if (this->ticker != NULL) {
 		delete this->ticker;
+		this->ticker = NULL;
 	}
 
 }
@@ -81,8 +82,10 @@ void			ServiceManager::updateRateHandler(const UserInput::Type input) {
 	ostringstream oss;
 
 	oss << "New rate : " << this->rate << std::endl;
-	// Update ticker
-	this->ticker->attach(callback(this, &ServiceManager::tickerHandler), this->rate);
+	// Update ticker if exists
+	if (this->ticker != NULL) {
+		this->ticker->attach(callback(this, &ServiceManager::tickerHandler), this->rate);
+	}
 	this->iomanager.display(oss.str());
 }
 
@@ -103,8 +106,9 @@ void			ServiceManager::joystickHandler(const UserInput::Type input) {
 	this->iomanager.getTopLight().updateState(Light::BLACK);
 
 	switch (input) {
-		case UserInput::FIRE: // Re-enabling data on display if the menu was on screen. Otherwise, resume/pause.
+		case UserInput::FIRE: // Re-enabling data on display if the menu was on screen.
 			this->shouldDisplayData = true;
+			this->tickerHandler();
 		break;
 		case UserInput::LEFT: // Get previout unit of the current sensor
 		if (this->currentSensor != NULL) {

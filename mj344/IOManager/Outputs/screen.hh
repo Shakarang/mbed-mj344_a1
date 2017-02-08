@@ -3,16 +3,15 @@
 * @Date:   2017-02-03T17:57:51+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-08T15:53:02+00:00
+* @Last modified time: 2017-02-08T19:14:13+00:00
 */
 
 #ifndef MJ344_SCREEN_HH_
 #define MJ344_SCREEN_HH_
 
-#include "mbed.h"
-#include "C12832.h"
 
 #include "AOutput.hh"
+#include "C12832.h"
 
 /**
  * LCD screen on mbed shield.
@@ -30,7 +29,7 @@ private:
 	/**
 	* LCD value for
 	*/
-	C12832		*shieldLCD;
+	C12832		*shieldLCD = NULL;
 };
 
 #endif /* !MJ344_SCREEN_HH_ */

@@ -3,7 +3,7 @@
 * @Date:   2017-02-06T15:25:22+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-08T16:05:38+00:00
+* @Last modified time: 2017-02-08T19:15:22+00:00
 */
 
 #ifndef MJ344_ACCELEROMETER_HH_
@@ -18,10 +18,6 @@
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif
-//
-// #ifndef roundf
-// #define roundf(var)    (float)(var+0.5f)
-// #endif
 
 /**
  * Accelerometer sensor inheriting from ASensorInput.
@@ -37,7 +33,7 @@ private:
 	/**
 	 * Shield sensor.
 	 */
-	MMA7660	*sensor;
+	MMA7660	*sensor = NULL;
 };
 
 #endif /* !MJ344_ACCELEROMETER_HH_ */

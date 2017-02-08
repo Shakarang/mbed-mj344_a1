@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T10:28:00+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-08T15:52:13+00:00
+* @Last modified time: 2017-02-08T19:14:21+00:00
 */
 
 #ifndef MJ344_LIGHT_HH_
@@ -52,17 +52,17 @@ private:
 	/**
 	 * Red light
 	 */
-	DigitalOut *red;
+	DigitalOut *red = NULL;
 
 	/**
 	 * Green light
 	 */
-	DigitalOut *green;
+	DigitalOut *green = NULL;
 
 	/**
 	 * Blue light
 	 */
-	DigitalOut *blue;
+	DigitalOut *blue = NULL;
 };
 
 #endif /* !MJ344_LIGHT_HH_ */

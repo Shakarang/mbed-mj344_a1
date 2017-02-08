@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T11:47:53+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-07T22:22:57+00:00
+* @Last modified time: 2017-02-08T19:14:57+00:00
 */
 
 #ifndef MJ344_JOYSTICK_HH_
@@ -25,27 +25,27 @@ private:
 	/**
 	 * Up used with InterruptIn to catch events.
 	 */
-	InterruptIn *up;
+	InterruptIn *up  = NULL;
 
 	/**
 	 * Down used with InterruptIn to catch events.
 	 */
-	InterruptIn *down;
+	InterruptIn *down  = NULL;
 
 	/**
 	 * Left used with InterruptIn to catch events.
 	 */
-	InterruptIn *left;
+	InterruptIn *left  = NULL;
 
 	/**
 	 * Right used with InterruptIn to catch events.
 	 */
-	InterruptIn *right;
+	InterruptIn *right  = NULL;
 
 	/**
 	 * Fire used with InterruptIn to catch events.
 	 */
-	InterruptIn *fire;
+	InterruptIn *fire  = NULL;
 
 private:
 

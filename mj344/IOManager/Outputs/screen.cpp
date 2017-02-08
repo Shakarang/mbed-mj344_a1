@@ -3,12 +3,12 @@
 * @Date:   2017-02-03T18:03:41+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-05T13:20:12+00:00
+* @Last modified time: 2017-02-08T18:26:43+00:00
 */
 
 #include "Screen.hh"
 
-Screen::Screen(): AOutput("shield_lcd") {
+Screen::Screen() {
   this->shieldLCD = new C12832(D11, D13, D12, D7, D10);
 }
 
