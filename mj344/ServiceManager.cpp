@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T17:17:29+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-07T22:24:34+00:00
+* @Last modified time: 2017-02-08T14:07:27+00:00
 */
 
 #include <sstream>
@@ -81,7 +81,8 @@ void			ServiceManager::updateRateHandler(const UserInput::Type input) {
 	ostringstream oss;
 
 	oss << "New rate : " << this->rate << std::endl;
-
+	// Update ticker
+	this->ticker->attach(callback(this, &ServiceManager::tickerHandler), this->rate);
 	this->iomanager.display(oss.str());
 }
 
@@ -181,8 +182,10 @@ void			ServiceManager::accelerometerHandler(std::map<std::string, float> data) {
 	}
 
 	for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); ++it) {
-		logStringStream << (*it).first << " : " << (*it).second << std::endl;
+		logStringStream << (*it).first << " : " << (*it).second << " ";
 	}
+
+	logStringStream << std::endl;
 
 	this->iomanager.log(logStringStream.str());
 }
