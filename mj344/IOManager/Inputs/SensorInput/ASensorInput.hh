@@ -3,7 +3,7 @@
 * @Date:   2017-02-05T13:37:35+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-07T22:18:11+00:00
+* @Last modified time: 2017-02-08T15:53:44+00:00
 */
 
 #ifndef MJ344_SENSORINPUT_HH_
@@ -13,7 +13,7 @@
 #include <string>
 #include <vector>
 
-#include "../../../../mbed-os/mbed.h"
+#include "mbed.h"
 
 /**
  * Abstract class that needs to be inherited.

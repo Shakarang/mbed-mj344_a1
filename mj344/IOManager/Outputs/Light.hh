@@ -3,13 +3,13 @@
 * @Date:   2017-02-05T10:28:00+00:00
 * @Email:  mj344@kent.ac.uk
 * @Last modified by:   mj344
-* @Last modified time: 2017-02-07T22:11:42+00:00
+* @Last modified time: 2017-02-08T15:52:13+00:00
 */
 
 #ifndef MJ344_LIGHT_HH_
 #define MJ344_LIGHT_HH_
 
-#include "../../../mbed-os/mbed.h"
+#include "mbed.h"
 
 class Light {
 
