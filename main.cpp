@@ -32,6 +32,9 @@ The main component of the application is the ServiceManager,
 it contains most of the logic. Another useful component is
 the IOManager, it is making information management easier
 by allowing us to easily create sensors, inputs and outputs.
+
+Youtube video : https://www.youtube.com/watch?v=kYBmAHm9oyY
+
  */
 int main() {
 
