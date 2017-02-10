@@ -208,26 +208,5 @@ int	ServiceManager::accelerometerColor(float pitch, float roll) {
 		result |= (pitch > 0) << 1; // Setting Green
 		result |= (roll > 0) << 0; // Setting Blue;
 	 }
-
-	 std::ostringstream ss;
-
-	 ss << result;
-
-	 this->iomanager.log(ss.str());
-	//
-	// if (pitch <= range && roll <= range) {
-	// 	return Light::RED;
-	// }
-	// if (pitch <= range && roll > -range) {
-	// 	return Light::YELLOW;
-	// }
-	// if (pitch > -range && roll <= range) {
-	// 	return Light::GREEN;
-	// }
-	// if (pitch > -range && roll > -range) {
-	// 	return Light::BLUE;
-	// }
 	return result;
-
-	return Light::BLACK;
 }
