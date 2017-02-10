@@ -27,7 +27,7 @@ Light::~Light() {
 }
 
 void	Light::updateState(const Light::Color clr) {
-	this->red->write(!((clr & ( 1 << 2 )) >> 2));
-	this->green->write(!((clr & ( 1 << 1 )) >> 1));
-	this->blue->write(!((clr & ( 1 << 0 )) >> 0));
+	this->red->write(!((clr >> 2) & 1));;
+	this->green->write(!((clr >> 1) & 1));
+	this->blue->write(!((clr >> 0) & 1));
 }
