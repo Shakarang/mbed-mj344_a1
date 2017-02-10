@@ -116,7 +116,7 @@ private:
 	 * @param  float Roll
 	 * @return       Color
 	 */
-	Light::Color accelerometerColor(float, float);
+	int accelerometerColor(float, float);
 
 };
 

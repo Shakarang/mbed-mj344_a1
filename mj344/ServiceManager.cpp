@@ -173,7 +173,7 @@ void			ServiceManager::accelerometerHandler(std::map<std::string, float> data) {
 
 	switch (this->currentSensor->getCurrentUnitIndex()) {
 		case 0:// Degrees : Roll & Pitch
-		this->iomanager.getTopLight().updateState(this->accelerometerColor(data["Pitch"], data["Roll"]));
+		this->iomanager.getTopLight().updateState((Light::Color)this->accelerometerColor(data["Pitch"], data["Roll"]));
 		stringStream << "Roll : " << data["Roll"] << "\nPitch : " << data["Pitch"] << std::endl;
 		break;
 		case 1: // Raw
@@ -194,26 +194,40 @@ void			ServiceManager::accelerometerHandler(std::map<std::string, float> data) {
 	this->iomanager.log(logStringStream.str());
 }
 
-Light::Color	ServiceManager::accelerometerColor(float pitch, float roll) {
+int	ServiceManager::accelerometerColor(float pitch, float roll) {
 
+	// Error range degrees
 	float range = 5;
 
+	int result = 4; // To, at least, have the R bit on to never have black light
+
 	if ((pitch >= -range && pitch <= range)
-		&& (roll >= -range && roll <= range)) {// Aligned
-		return Light::WHITE;
-	}
-	if (pitch <= range && roll <= range) {
-		return Light::RED;
-	}
-	if (pitch <= range && roll > -range) {
-		return Light::YELLOW;
-	}
-	if (pitch > -range && roll <= range) {
-		return Light::GREEN;
-	}
-	if (pitch > -range && roll > -range) {
-		return Light::BLUE;
-	}
+		&& (roll >= -range && roll <= range)) {// Aligned with error range
+		return 3; // Corresponding to Light blue, a color that could never happend.
+	} else {
+		result |= (pitch > 0) << 1; // Setting Green
+		result |= (roll > 0) << 0; // Setting Blue;
+	 }
+
+	 std::ostringstream ss;
+
+	 ss << result;
+
+	 this->iomanager.log(ss.str());
+	//
+	// if (pitch <= range && roll <= range) {
+	// 	return Light::RED;
+	// }
+	// if (pitch <= range && roll > -range) {
+	// 	return Light::YELLOW;
+	// }
+	// if (pitch > -range && roll <= range) {
+	// 	return Light::GREEN;
+	// }
+	// if (pitch > -range && roll > -range) {
+	// 	return Light::BLUE;
+	// }
+	return result;
 
 	return Light::BLACK;
 }
